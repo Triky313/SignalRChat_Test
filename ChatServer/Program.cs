@@ -16,7 +16,7 @@ namespace ChatServer {
             // for more information.
             string url = "http://localhost:9000";
             using(WebApp.Start(url)) {
-                Console.WriteLine("Server running on {0}", url);
+                Console.WriteLine($"Server läuft auf {url}");
                 Console.ReadLine();
             }
         }
@@ -33,7 +33,7 @@ namespace ChatServer {
     public class ChatHub : Hub {
         public void Send(string name, string message) {
             Clients.All.addMessage(name, message);
-            Console.WriteLine("ChatHub läuft.");
+            Console.WriteLine($"{name}: {message}");
         }
     }
 
