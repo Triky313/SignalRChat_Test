@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -24,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -87,6 +89,150 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dist\css\foundation-float.css" />
+    <Content Include="dist\css\foundation-float.min.css" />
+    <Content Include="dist\css\foundation-prototype.css" />
+    <Content Include="dist\css\foundation-prototype.min.css" />
+    <Content Include="dist\css\foundation-rtl.css" />
+    <Content Include="dist\css\foundation-rtl.min.css" />
+    <Content Include="dist\css\foundation.css" />
+    <Content Include="dist\css\foundation.min.css" />
+    <Content Include="dist\js\foundation.js" />
+    <Content Include="dist\js\foundation.min.js" />
+    <Content Include="dist\js\npm.js" />
+    <Content Include="dist\js\plugins\foundation.abide.js" />
+    <Content Include="dist\js\plugins\foundation.abide.min.js" />
+    <Content Include="dist\js\plugins\foundation.accordion.js" />
+    <Content Include="dist\js\plugins\foundation.accordion.min.js" />
+    <Content Include="dist\js\plugins\foundation.accordionMenu.js" />
+    <Content Include="dist\js\plugins\foundation.accordionMenu.min.js" />
+    <Content Include="dist\js\plugins\foundation.core.js" />
+    <Content Include="dist\js\plugins\foundation.core.min.js" />
+    <Content Include="dist\js\plugins\foundation.drilldown.js" />
+    <Content Include="dist\js\plugins\foundation.drilldown.min.js" />
+    <Content Include="dist\js\plugins\foundation.dropdown.js" />
+    <Content Include="dist\js\plugins\foundation.dropdown.min.js" />
+    <Content Include="dist\js\plugins\foundation.dropdownMenu.js" />
+    <Content Include="dist\js\plugins\foundation.dropdownMenu.min.js" />
+    <Content Include="dist\js\plugins\foundation.equalizer.js" />
+    <Content Include="dist\js\plugins\foundation.equalizer.min.js" />
+    <Content Include="dist\js\plugins\foundation.interchange.js" />
+    <Content Include="dist\js\plugins\foundation.interchange.min.js" />
+    <Content Include="dist\js\plugins\foundation.magellan.js" />
+    <Content Include="dist\js\plugins\foundation.magellan.min.js" />
+    <Content Include="dist\js\plugins\foundation.offcanvas.js" />
+    <Content Include="dist\js\plugins\foundation.offcanvas.min.js" />
+    <Content Include="dist\js\plugins\foundation.orbit.js" />
+    <Content Include="dist\js\plugins\foundation.orbit.min.js" />
+    <Content Include="dist\js\plugins\foundation.responsiveAccordionTabs.js" />
+    <Content Include="dist\js\plugins\foundation.responsiveAccordionTabs.min.js" />
+    <Content Include="dist\js\plugins\foundation.responsiveMenu.js" />
+    <Content Include="dist\js\plugins\foundation.responsiveMenu.min.js" />
+    <Content Include="dist\js\plugins\foundation.responsiveToggle.js" />
+    <Content Include="dist\js\plugins\foundation.responsiveToggle.min.js" />
+    <Content Include="dist\js\plugins\foundation.reveal.js" />
+    <Content Include="dist\js\plugins\foundation.reveal.min.js" />
+    <Content Include="dist\js\plugins\foundation.slider.js" />
+    <Content Include="dist\js\plugins\foundation.slider.min.js" />
+    <Content Include="dist\js\plugins\foundation.smoothScroll.js" />
+    <Content Include="dist\js\plugins\foundation.smoothScroll.min.js" />
+    <Content Include="dist\js\plugins\foundation.sticky.js" />
+    <Content Include="dist\js\plugins\foundation.sticky.min.js" />
+    <Content Include="dist\js\plugins\foundation.tabs.js" />
+    <Content Include="dist\js\plugins\foundation.tabs.min.js" />
+    <Content Include="dist\js\plugins\foundation.toggler.js" />
+    <Content Include="dist\js\plugins\foundation.toggler.min.js" />
+    <Content Include="dist\js\plugins\foundation.tooltip.js" />
+    <Content Include="dist\js\plugins\foundation.tooltip.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.box.js" />
+    <Content Include="dist\js\plugins\foundation.util.box.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.imageLoader.js" />
+    <Content Include="dist\js\plugins\foundation.util.imageLoader.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.keyboard.js" />
+    <Content Include="dist\js\plugins\foundation.util.keyboard.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.mediaQuery.js" />
+    <Content Include="dist\js\plugins\foundation.util.mediaQuery.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.motion.js" />
+    <Content Include="dist\js\plugins\foundation.util.motion.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.nest.js" />
+    <Content Include="dist\js\plugins\foundation.util.nest.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.timer.js" />
+    <Content Include="dist\js\plugins\foundation.util.timer.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.timerAndImageLoader.js" />
+    <Content Include="dist\js\plugins\foundation.util.timerAndImageLoader.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.touch.js" />
+    <Content Include="dist\js\plugins\foundation.util.touch.min.js" />
+    <Content Include="dist\js\plugins\foundation.util.triggers.js" />
+    <Content Include="dist\js\plugins\foundation.util.triggers.min.js" />
+    <Content Include="dist\js\plugins\foundation.zf.responsiveAccordionTabs.js" />
+    <Content Include="dist\js\plugins\foundation.zf.responsiveAccordionTabs.min.js" />
+    <Content Include="js\entries\foundation-plugins.js" />
+    <Content Include="js\entries\foundation.js" />
+    <Content Include="js\entries\plugins\foundation.abide.js" />
+    <Content Include="js\entries\plugins\foundation.accordion.js" />
+    <Content Include="js\entries\plugins\foundation.accordionMenu.js" />
+    <Content Include="js\entries\plugins\foundation.core.js" />
+    <Content Include="js\entries\plugins\foundation.drilldown.js" />
+    <Content Include="js\entries\plugins\foundation.dropdown.js" />
+    <Content Include="js\entries\plugins\foundation.dropdownMenu.js" />
+    <Content Include="js\entries\plugins\foundation.equalizer.js" />
+    <Content Include="js\entries\plugins\foundation.interchange.js" />
+    <Content Include="js\entries\plugins\foundation.magellan.js" />
+    <Content Include="js\entries\plugins\foundation.offcanvas.js" />
+    <Content Include="js\entries\plugins\foundation.orbit.js" />
+    <Content Include="js\entries\plugins\foundation.responsiveAccordionTabs.js" />
+    <Content Include="js\entries\plugins\foundation.responsiveMenu.js" />
+    <Content Include="js\entries\plugins\foundation.responsiveToggle.js" />
+    <Content Include="js\entries\plugins\foundation.reveal.js" />
+    <Content Include="js\entries\plugins\foundation.slider.js" />
+    <Content Include="js\entries\plugins\foundation.smoothScroll.js" />
+    <Content Include="js\entries\plugins\foundation.sticky.js" />
+    <Content Include="js\entries\plugins\foundation.tabs.js" />
+    <Content Include="js\entries\plugins\foundation.toggler.js" />
+    <Content Include="js\entries\plugins\foundation.tooltip.js" />
+    <Content Include="js\entries\plugins\foundation.util.box.js" />
+    <Content Include="js\entries\plugins\foundation.util.imageLoader.js" />
+    <Content Include="js\entries\plugins\foundation.util.keyboard.js" />
+    <Content Include="js\entries\plugins\foundation.util.mediaQuery.js" />
+    <Content Include="js\entries\plugins\foundation.util.motion.js" />
+    <Content Include="js\entries\plugins\foundation.util.nest.js" />
+    <Content Include="js\entries\plugins\foundation.util.timer.js" />
+    <Content Include="js\entries\plugins\foundation.util.touch.js" />
+    <Content Include="js\entries\plugins\foundation.util.triggers.js" />
+    <Content Include="js\foundation.abide.js" />
+    <Content Include="js\foundation.accordion.js" />
+    <Content Include="js\foundation.accordionMenu.js" />
+    <Content Include="js\foundation.core.js" />
+    <Content Include="js\foundation.drilldown.js" />
+    <Content Include="js\foundation.dropdown.js" />
+    <Content Include="js\foundation.dropdownMenu.js" />
+    <Content Include="js\foundation.equalizer.js" />
+    <Content Include="js\foundation.interchange.js" />
+    <Content Include="js\foundation.magellan.js" />
+    <Content Include="js\foundation.offcanvas.js" />
+    <Content Include="js\foundation.orbit.js" />
+    <Content Include="js\foundation.plugin.js" />
+    <Content Include="js\foundation.positionable.js" />
+    <Content Include="js\foundation.responsiveAccordionTabs.js" />
+    <Content Include="js\foundation.responsiveMenu.js" />
+    <Content Include="js\foundation.responsiveToggle.js" />
+    <Content Include="js\foundation.reveal.js" />
+    <Content Include="js\foundation.slider.js" />
+    <Content Include="js\foundation.smoothScroll.js" />
+    <Content Include="js\foundation.sticky.js" />
+    <Content Include="js\foundation.tabs.js" />
+    <Content Include="js\foundation.toggler.js" />
+    <Content Include="js\foundation.tooltip.js" />
+    <Content Include="js\foundation.util.box.js" />
+    <Content Include="js\foundation.util.core.js" />
+    <Content Include="js\foundation.util.imageLoader.js" />
+    <Content Include="js\foundation.util.keyboard.js" />
+    <Content Include="js\foundation.util.mediaQuery.js" />
+    <Content Include="js\foundation.util.motion.js" />
+    <Content Include="js\foundation.util.nest.js" />
+    <Content Include="js\foundation.util.timer.js" />
+    <Content Include="js\foundation.util.touch.js" />
+    <Content Include="js\foundation.util.triggers.js" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -95,12 +241,129 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="scss\_global.scss" />
+    <Content Include="scss\xy-grid\_xy-grid.scss" />
+    <Content Include="scss\xy-grid\_position.scss" />
+    <Content Include="scss\xy-grid\_layout.scss" />
+    <Content Include="scss\xy-grid\_gutters.scss" />
+    <Content Include="scss\xy-grid\_grid.scss" />
+    <Content Include="scss\xy-grid\_frame.scss" />
+    <Content Include="scss\xy-grid\_collapse.scss" />
+    <Content Include="scss\xy-grid\_classes.scss" />
+    <Content Include="scss\xy-grid\_cell.scss" />
+    <Content Include="scss\util\_value.scss" />
+    <Content Include="scss\util\_util.scss" />
+    <Content Include="scss\util\_unit.scss" />
+    <Content Include="scss\util\_typography.scss" />
+    <Content Include="scss\util\_selector.scss" />
+    <Content Include="scss\util\_mixins.scss" />
+    <Content Include="scss\util\_math.scss" />
+    <Content Include="scss\util\_flex.scss" />
+    <Content Include="scss\util\_direction.scss" />
+    <Content Include="scss\util\_color.scss" />
+    <Content Include="scss\util\_breakpoint.scss" />
+    <Content Include="scss\typography\_typography.scss" />
+    <Content Include="scss\typography\_print.scss" />
+    <Content Include="scss\typography\_helpers.scss" />
+    <Content Include="scss\typography\_base.scss" />
+    <Content Include="scss\typography\_alignment.scss" />
+    <Content Include="scss\settings\_settings.scss" />
+    <Content Include="scss\prototype\_typescale.scss" />
+    <Content Include="scss\prototype\_text-utilities.scss" />
+    <Content Include="scss\prototype\_text-transformation.scss" />
+    <Content Include="scss\prototype\_text-decoration.scss" />
+    <Content Include="scss\prototype\_spacing.scss" />
+    <Content Include="scss\prototype\_sizing.scss" />
+    <Content Include="scss\prototype\_shadow.scss" />
+    <Content Include="scss\prototype\_separator.scss" />
+    <Content Include="scss\prototype\_rounded.scss" />
+    <Content Include="scss\prototype\_rotate.scss" />
+    <Content Include="scss\prototype\_relation.scss" />
+    <Content Include="scss\prototype\_prototype.scss" />
+    <Content Include="scss\prototype\_position.scss" />
+    <Content Include="scss\prototype\_overflow.scss" />
+    <Content Include="scss\prototype\_list-style-type.scss" />
+    <Content Include="scss\prototype\_font-styling.scss" />
+    <Content Include="scss\prototype\_display.scss" />
+    <Content Include="scss\prototype\_box.scss" />
+    <Content Include="scss\prototype\_bordered.scss" />
+    <Content Include="scss\prototype\_border-none.scss" />
+    <Content Include="scss\prototype\_border-box.scss" />
+    <Content Include="scss\prototype\_arrow.scss" />
+    <Content Include="scss\grid\_size.scss" />
+    <Content Include="scss\grid\_row.scss" />
+    <Content Include="scss\grid\_position.scss" />
+    <Content Include="scss\grid\_layout.scss" />
+    <Content Include="scss\grid\_gutter.scss" />
+    <Content Include="scss\grid\_grid.scss" />
+    <Content Include="scss\grid\_flex-grid.scss" />
+    <Content Include="scss\grid\_column.scss" />
+    <Content Include="scss\grid\_classes.scss" />
+    <Content Include="scss\foundation.scss" />
+    <Content Include="scss\forms\_text.scss" />
+    <Content Include="scss\forms\_select.scss" />
+    <Content Include="scss\forms\_range.scss" />
+    <Content Include="scss\forms\_progress.scss" />
+    <Content Include="scss\forms\_meter.scss" />
+    <Content Include="scss\forms\_label.scss" />
+    <Content Include="scss\forms\_input-group.scss" />
+    <Content Include="scss\forms\_help-text.scss" />
+    <Content Include="scss\forms\_forms.scss" />
+    <Content Include="scss\forms\_fieldset.scss" />
+    <Content Include="scss\forms\_error.scss" />
+    <Content Include="scss\forms\_checkbox.scss" />
+    <Content Include="scss\components\_visibility.scss" />
+    <Content Include="scss\components\_top-bar.scss" />
+    <Content Include="scss\components\_tooltip.scss" />
+    <Content Include="scss\components\_title-bar.scss" />
+    <Content Include="scss\components\_thumbnail.scss" />
+    <Content Include="scss\components\_tabs.scss" />
+    <Content Include="scss\components\_table.scss" />
+    <Content Include="scss\components\_switch.scss" />
+    <Content Include="scss\components\_sticky.scss" />
+    <Content Include="scss\components\_slider.scss" />
+    <Content Include="scss\components\_reveal.scss" />
+    <Content Include="scss\components\_responsive-embed.scss" />
+    <Content Include="scss\components\_progress-bar.scss" />
+    <Content Include="scss\components\_pagination.scss" />
+    <Content Include="scss\components\_orbit.scss" />
+    <Content Include="scss\components\_off-canvas.scss" />
+    <Content Include="scss\components\_menu.scss" />
+    <Content Include="scss\components\_menu-icon.scss" />
+    <Content Include="scss\components\_media-object.scss" />
+    <Content Include="scss\components\_label.scss" />
+    <Content Include="scss\components\_float.scss" />
+    <Content Include="scss\components\_flex.scss" />
+    <Content Include="scss\components\_flex-video.scss" />
+    <Content Include="scss\components\_dropdown.scss" />
+    <Content Include="scss\components\_dropdown-menu.scss" />
+    <Content Include="scss\components\_drilldown.scss" />
+    <Content Include="scss\components\_close-button.scss" />
+    <Content Include="scss\components\_card.scss" />
+    <Content Include="scss\components\_callout.scss" />
+    <Content Include="scss\components\_button.scss" />
+    <Content Include="scss\components\_button-group.scss" />
+    <Content Include="scss\components\_breadcrumbs.scss" />
+    <Content Include="scss\components\_badge.scss" />
+    <Content Include="scss\components\_accordion.scss" />
+    <Content Include="scss\components\_accordion-menu.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="_vendor\sassy-lists\stylesheets\helpers\_true.scss" />
+    <Content Include="_vendor\sassy-lists\stylesheets\helpers\_missing-dependencies.scss" />
+    <Content Include="_vendor\sassy-lists\stylesheets\functions\_to-list.scss" />
+    <Content Include="_vendor\sassy-lists\stylesheets\functions\_replace.scss" />
+    <Content Include="_vendor\sassy-lists\stylesheets\functions\_remove.scss" />
+    <Content Include="_vendor\sassy-lists\stylesheets\functions\_purge.scss" />
+    <Content Include="_vendor\normalize-scss\sass\_normalize.scss" />
+    <Content Include="_vendor\normalize-scss\sass\normalize\_vertical-rhythm.scss" />
+    <Content Include="_vendor\normalize-scss\sass\normalize\_variables.scss" />
+    <Content Include="_vendor\normalize-scss\sass\normalize\_normalize-mixin.scss" />
+    <Content Include="_vendor\normalize-scss\sass\normalize\_import-now.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
@@ -111,11 +374,18 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="dist\js\foundation.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
